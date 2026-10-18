@@ -1,18 +1,20 @@
-import js from "@eslint/js";
-import { defineConfig } from "eslint/config";
-import tseslint from "typescript-eslint";
-import unicorn from "eslint-plugin-unicorn";
+import js from '@eslint/js';
+import { defineConfig } from 'eslint/config';
+import tseslint from 'typescript-eslint';
+import unicorn from 'eslint-plugin-unicorn';
+import eslintConfigPrettier from 'eslint-config-prettier/flat';
 
 export default defineConfig(
   {
-    ignores: ["dist"],
+    ignores: ['dist'],
   },
   {
-    files: ["**/*.ts"],
+    files: ['**/*.ts'],
     extends: [
       js.configs.recommended,
       tseslint.configs.strictTypeChecked,
       unicorn.configs.recommended,
+      eslintConfigPrettier,
     ],
     languageOptions: {
       parserOptions: {
@@ -21,9 +23,9 @@ export default defineConfig(
       },
     },
     rules: {
-      "unicorn/prevent-abbreviations": "off",
-      "unicorn/no-null": "off",
-      "no-console": "error",
+      'unicorn/prevent-abbreviations': 'off',
+      'unicorn/no-null': 'off',
+      'no-console': 'error',
     },
   },
 );
