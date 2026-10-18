@@ -1,5 +1,7 @@
 import "./style.scss";
 
-document.querySelector<HTMLElement>("#app")!.innerHTML = `
-<h1>Alchemist's Cauldron</h1>
-`;
+const appContainer = document.querySelector<HTMLElement>("#app");
+
+if (!appContainer) throw new Error("App container is missing");
+
+appContainer.innerHTML = `<h1>Alchemist's Cauldron</h1>`;
