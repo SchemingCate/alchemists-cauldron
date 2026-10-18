@@ -8,7 +8,7 @@ This is a pure TypeScript project, without frameworks or libraries.
 
 Brew your potion!
 
-> The goal of the game is to match 3 target ranges (*temperature*, *density* and *magic power*) before time or lives run out.
+> The goal of the game is to match 3 target ranges (_temperature_, _density_ and _magic power_) before time or lives run out.
 
 ## The structure of the task
 
