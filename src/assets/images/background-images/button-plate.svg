@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="112" viewBox="0 0 320 112" fill="none" stroke="#4A3428" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" xmlns:c2pa="http://c2pa.org/manifest">
+  <title>Wooden button plate</title>
+  <defs>
+    <!-- hand-drawn look: slightly wobbly edges -->
+    <filter id="tex-button-plate" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="12" result="wobble"/>
+      <feDisplacementMap in="SourceGraphic" in2="wobble" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <!-- one carved corner: a curl with two leaves and a little star -->
+    <g id="corner">
+      <path d="M22 44 C20 30 26 22 40 20 C48 19 52 24 50 29 C48 33 42 32 42 28" stroke="#8F6644" stroke-width="2.5"/>
+      <path d="M23 45 C21 31 27 23 41 21" stroke="#E0B98C" stroke-width="1.5"/>
+      <path d="M54 22 C60 16 68 16 72 20 C66 25 60 25 54 22 Z" fill="#B5835A" stroke="#8F6644" stroke-width="2"/>
+      <path d="M26 50 C20 56 20 64 24 68 C29 62 29 56 26 50 Z" fill="#B5835A" stroke="#8F6644" stroke-width="2"/>
+      <path d="M36 36 L37.5 39.5 L41 41 L37.5 42.5 L36 46 L34.5 42.5 L31 41 L34.5 39.5 Z" fill="#F2C14E" stroke="#8F6644" stroke-width="1.2"/>
+    </g>
+  </defs>
+  <g filter="url(#tex-button-plate)">
+    <!-- thickness underneath -->
+    <path d="M18 14 C100 10 220 10 302 14 C312 15 316 20 316 30 L316 90 C316 102 312 106 302 107 C220 111 100 111 18 107 C8 106 4 102 4 90 L4 30 C4 20 8 15 18 14 Z" fill="#7E4A30"/>
+    <!-- plate -->
+    <path id="plate" d="M18 6 C100 2 220 2 302 6 C312 7 316 12 316 22 L316 82 C316 94 312 98 302 99 C220 103 100 103 18 99 C8 98 4 94 4 82 L4 22 C4 12 8 7 18 6 Z" fill="#C99A6E"/>
+    <!-- wood grain -->
+    <g stroke="#B5835A" stroke-width="2">
+      <path d="M70 26 C120 22 170 30 250 25"/>
+      <path d="M60 52 C110 48 150 56 200 51 C230 48 250 54 268 52"/>
+      <path d="M80 77 C130 74 190 80 248 76"/>
+      <path d="M160 40 C170 36 180 40 176 46 C172 50 162 48 160 40 Z"/>
+    </g>
+    <!-- carved groove: dark cut with a light lip below it -->
+    <path d="M24 16 C100 13 220 13 296 16 C302 17 305 20 305 26 L305 78 C305 84 302 88 296 88 C220 91 100 91 24 88 C18 88 15 84 15 78 L15 26 C15 20 18 17 24 16 Z" stroke="#8F6644" stroke-width="2.5"/>
+    <path d="M25 18.5 C100 15.5 220 15.5 295 18.5 C300 19.5 302.5 22 302.5 27 L302.5 77 C302.5 82 300 85.5 295 85.5 C220 88.5 100 88.5 25 85.5 C20 85.5 17.5 82 17.5 77 L17.5 27 C17.5 22 20 19.5 25 18.5 Z" stroke="#E0B98C" stroke-width="1.5"/>
+    <!-- corners: the same carving mirrored four times -->
+    <use href="#corner"/>
+    <use href="#corner" transform="translate(320 0) scale(-1 1)"/>
+    <use href="#corner" transform="translate(0 104) scale(1 -1)"/>
+    <use href="#corner" transform="translate(320 104) scale(-1 -1)"/>
+    <!-- plate edge on top -->
+    <path d="M18 6 C100 2 220 2 302 6 C312 7 316 12 316 22 L316 82 C316 94 312 98 302 99 C220 103 100 103 18 99 C8 98 4 94 4 82 L4 22 C4 12 8 7 18 6 Z"/>
+  </g>
+</svg>
