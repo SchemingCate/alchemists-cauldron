@@ -3,7 +3,7 @@ import type { IIngredient } from '../helpers/types';
 export const INGREDIENTS: IIngredient[] = [
   {
     id: 'dragon-tears',
-    name: 'Dragon tears',
+    name: 'Dragon Tears',
     icon: '',
     temperature: 25,
     density: 8,

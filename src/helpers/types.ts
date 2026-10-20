@@ -15,7 +15,7 @@ interface IRecipeRange {
   max: number;
 }
 
-interface IRecipe {
+export interface IRecipe {
   id: string;
   name: string;
   difficulty: Difficulty;
