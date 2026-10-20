@@ -1,0 +1,8 @@
+.shelf {
+  max-width: 500px;
+  min-height: 550px;
+  border-image-source: url(../../assets/images/background-images/ingredient-shelf.svg);
+  border-image-slice: 30 22 fill;
+  border-style: solid;
+  border-width: 30px 22px;
+}

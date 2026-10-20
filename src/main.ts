@@ -5,6 +5,7 @@ import { helpElement } from './ui/help/help';
 import { settingsElement } from './ui/settings/settings';
 import { actionButton } from './ui/main-action-button/main-action-button';
 import './style.scss';
+import { ingredientsShelf } from './ui/ingredients-shelf/ingredients-shelf';
 
 const appContainer = document.querySelector<HTMLElement>('#app');
 
@@ -12,7 +13,8 @@ if (!appContainer) throw new Error('App container is missing');
 
 const header = createHTMLElement({ tag: 'header' });
 
-const main = createHTMLElement({ tag: 'main', textContent: 'main' });
+const main = createHTMLElement({ tag: 'main' });
+main.append(ingredientsShelf());
 const footer = createHTMLElement({ tag: 'footer' });
 
 footer.append(helpElement(), actionButton(), settingsElement());
