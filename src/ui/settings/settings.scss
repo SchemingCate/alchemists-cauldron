@@ -1,0 +1,21 @@
+.settings {
+  background-image: url(../../assets/images/icons/icon-settings.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100px;
+  height: 110px;
+  background-color: transparent;
+  border: none;
+  transition:
+    text-shadow 0.3s,
+    transform 0.3s;
+  justify-self: right;
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+  }
+  &:active {
+    transform: translateY(3px);
+  }
+}

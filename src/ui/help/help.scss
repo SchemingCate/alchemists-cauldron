@@ -1,0 +1,19 @@
+.help {
+  background-image: url(../../assets/images/icons/icon-help.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100px;
+  height: 110px;
+  background-color: transparent;
+  border: none;
+  transition:
+    text-shadow 0.3s,
+    transform 0.3s;
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+  }
+  &:active {
+    transform: translateY(3px);
+  }
+}
