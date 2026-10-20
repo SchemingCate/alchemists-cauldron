@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="22" viewBox="0 0 200 22" fill="none" stroke-linecap="round" xmlns:c2pa="http://c2pa.org/manifest">
+  <title>Shelf plank to put under a card (background-repeat: repeat-x). Cards stand on y = 2</title>
+  <defs>
+    <filter id="tex-shelf-plank" filterUnits="userSpaceOnUse" x="0" y="-4" width="200" height="30">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="67" stitchTiles="stitch" result="wobble"/>
+      <feDisplacementMap in="SourceGraphic" in2="wobble" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  <g filter="url(#tex-shelf-plank)"><path d="M-200 6 L0 6 L0 18 L-200 18 Z" fill="#B98058" stroke="none"/><path d="M-200 2 L0 2 L0 7 L-200 7 Z" fill="#D2A678" stroke="none"/><path d="M-200 2 L0 2 M-200 7 L0 7 M-200 18 L0 18" stroke="#4A3428" stroke-width="2.5"/><path d="M-200 12.5 C-140 11.5 -60 13.5 0 12.5" stroke="#9A6A48" stroke-width="1.5"/><path d="M-200 19.5 L0 19.5" stroke="#8A5E40" stroke-width="3" opacity="0.35"/><path d="M0 6 L200 6 L200 18 L0 18 Z" fill="#B98058" stroke="none"/><path d="M0 2 L200 2 L200 7 L0 7 Z" fill="#D2A678" stroke="none"/><path d="M0 2 L200 2 M0 7 L200 7 M0 18 L200 18" stroke="#4A3428" stroke-width="2.5"/><path d="M0 12.5 C60 11.5 140 13.5 200 12.5" stroke="#9A6A48" stroke-width="1.5"/><path d="M0 19.5 L200 19.5" stroke="#8A5E40" stroke-width="3" opacity="0.35"/><path d="M200 6 L400 6 L400 18 L200 18 Z" fill="#B98058" stroke="none"/><path d="M200 2 L400 2 L400 7 L200 7 Z" fill="#D2A678" stroke="none"/><path d="M200 2 L400 2 M200 7 L400 7 M200 18 L400 18" stroke="#4A3428" stroke-width="2.5"/><path d="M200 12.5 C260 11.5 340 13.5 400 12.5" stroke="#9A6A48" stroke-width="1.5"/><path d="M200 19.5 L400 19.5" stroke="#8A5E40" stroke-width="3" opacity="0.35"/></g>
+</svg>

@@ -1,8 +1,44 @@
 .shelf {
-  max-width: 500px;
+  max-width: 470px;
   min-height: 550px;
+  display: flex;
+  flex-direction: column;
   border-image-source: url(../../assets/images/background-images/ingredient-shelf.svg);
   border-image-slice: 30 22 fill;
   border-style: solid;
   border-width: 30px 22px;
+  &_ingredient {
+    min-height: 70px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 1fr;
+    font-family: 'Grandstander', sans-serif;
+    font-style: normal;
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      height: 20px;
+      width: 100%;
+      background-image: url(../../assets/images/shelf-plank.svg);
+    }
+    &_image {
+      width: 80px;
+      grid-row: 1 / 3;
+    }
+    &_name {
+      font-size: 42px;
+      text-align: left;
+    }
+    &_stats {
+      font-size: 28px;
+      display: flex;
+      gap: 10px;
+    }
+  }
 }
