@@ -2,9 +2,7 @@ import type { Difficulty, IDifficultyValues } from '../helpers/types';
 
 export const DEFAULT_DIFFICULTY: Difficulty = 'medium';
 
-export const DIFFICULTIES: Readonly<
-  Record<Difficulty, Readonly<IDifficultyValues>>
-> = {
+export const DIFFICULTIES: Readonly<Record<Difficulty, IDifficultyValues>> = {
   easy: {
     ingredientsOnShelf: 4,
     cauldronCapacity: 4,

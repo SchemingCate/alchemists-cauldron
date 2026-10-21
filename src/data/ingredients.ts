@@ -9,7 +9,7 @@ import voidEssenceImg from '../assets/images/icons/ingredients/essence-of-the-vo
 import phoenixImg from '../assets/images/icons/ingredients/phoenix-feather.svg';
 import toadSlime from '../assets/images/icons/ingredients/toad-slime.svg';
 
-export const INGREDIENTS: IIngredient[] = [
+export const INGREDIENTS: readonly IIngredient[] = [
   {
     id: 'dragon-tears',
     name: 'Dragon Tears',

@@ -2,26 +2,26 @@ export type Difficulty = 'easy' | 'medium' | 'hard';
 export type GameStatus = 'menu' | 'playing' | 'paused' | 'game-over';
 
 export interface IIngredient {
-  id: string;
-  name: string;
-  icon: string;
-  temperature: number;
-  density: number;
-  magicPower: number;
+  readonly id: string;
+  readonly name: string;
+  readonly icon: string;
+  readonly temperature: number;
+  readonly density: number;
+  readonly magicPower: number;
 }
 
 interface IRecipeRange {
-  min: number;
-  max: number;
+  readonly min: number;
+  readonly max: number;
 }
 
 export interface IRecipe {
-  id: string;
-  name: string;
-  difficulty: Difficulty;
-  temperature: IRecipeRange;
-  density: IRecipeRange;
-  magicPower: IRecipeRange;
+  readonly id: string;
+  readonly name: string;
+  readonly difficulty: Difficulty;
+  readonly temperature: IRecipeRange;
+  readonly density: IRecipeRange;
+  readonly magicPower: IRecipeRange;
 }
 
 export interface IGameState {
@@ -53,11 +53,11 @@ export interface IReaction {
 }
 
 export interface IDifficultyValues {
-  ingredientsOnShelf: number;
-  cauldronCapacity: number;
-  startTime: number;
-  recipeTolerance: number;
-  lives: number;
-  scorePerBrew: number;
-  timeBonus: number;
+  readonly ingredientsOnShelf: number;
+  readonly cauldronCapacity: number;
+  readonly startTime: number;
+  readonly recipeTolerance: number;
+  readonly lives: number;
+  readonly scorePerBrew: number;
+  readonly timeBonus: number;
 }

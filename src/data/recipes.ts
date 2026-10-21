@@ -1,6 +1,6 @@
 import type { IRecipe } from '../helpers/types';
 
-export const RECIPES: IRecipe[] = [
+export const RECIPES: readonly IRecipe[] = [
   {
     id: 'moon-mist',
     name: 'Moon Mist',
