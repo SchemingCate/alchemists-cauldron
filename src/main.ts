@@ -13,6 +13,8 @@ import {
   renderShelfIngredients,
 } from './ui/ingredients-shelf/ingredients-shelf';
 import { readGameState, updateToStartGameState } from './state/game-state';
+import { cauldron } from './ui/cauldron/cauldron';
+import { recipeBook } from './ui/recipe-book/recipe-book';
 
 const render = () => {
   const gameState = readGameState();
@@ -35,7 +37,7 @@ const init = () => {
 
   const header = createHTMLElement({ tag: 'header' });
   const main = createHTMLElement({ tag: 'main' });
-  main.append(ingredientsShelfInit());
+  main.append(ingredientsShelfInit(), cauldron(), recipeBook());
   const footer = createHTMLElement({ tag: 'footer' });
   footer.append(
     helpElement(),

@@ -6,7 +6,12 @@ import { INGREDIENTS } from '../../data/ingredients';
 const shelf = createHTMLElement({ tag: 'div', classList: 'shelf' });
 
 export const ingredientsShelfInit = () => {
-  return shelf;
+  const container = createHTMLElement({
+    tag: 'div',
+    classList: 'shelf-container',
+  });
+  container.append(shelf);
+  return container;
 };
 
 const createIngredientElement = (
