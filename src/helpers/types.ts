@@ -1,4 +1,4 @@
-type Difficulty = 'easy' | 'medium' | 'hard'; // Level 2+
+export type Difficulty = 'easy' | 'medium' | 'hard';
 export type GameStatus = 'menu' | 'playing' | 'paused' | 'game-over';
 
 export interface IIngredient {
@@ -32,7 +32,7 @@ export interface IGameState {
   activeRecipe: IRecipe;
   cauldronIngredients: IIngredient[];
   shelfStock: Record<string, number>; // ingredient id -> portions left
-  difficulty?: Difficulty; // Level 2+
+  difficulty: Difficulty;
   lastReactionId?: string | null; // Level 3+
 }
 
@@ -50,4 +50,14 @@ export interface IReaction {
     density: number;
     magicPower: number;
   };
+}
+
+export interface IDifficultyValues {
+  ingredientsOnShelf: number;
+  cauldronCapacity: number;
+  startTime: number;
+  recipeTolerance: number;
+  lives: number;
+  scorePerBrew: number;
+  timeBonus: number;
 }
