@@ -1,13 +1,33 @@
+.shelf-container {
+  align-self: center;
+}
+
 .shelf {
+  margin: auto;
   max-width: 470px;
-  min-height: 550px;
+  height: 550px;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
   border-image-source: url(../../assets/images/background-images/ingredient-shelf.svg);
   border-image-slice: 30 22 fill;
   border-style: solid;
   border-width: 30px 22px;
+  &::-webkit-scrollbar {
+    width: 20px;
+  }
+  &::-webkit-scrollbar-track {
+    background-image: url(../../assets/scrollbar/scrollbar-track-y.svg);
+    background-repeat: repeat-y;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-image-source: url(../../assets/scrollbar/scrollbar-thumb-y.svg);
+    border-image-slice: 16 0 fill;
+    border-style: solid;
+    border-width: 16px 0;
+  }
   &_ingredient {
+    flex-shrink: 0;
     min-height: 70px;
     display: grid;
     grid-template-columns: 1fr 4fr;
