@@ -3,22 +3,48 @@ import { scoreElement } from './ui/score';
 import { timeElement } from './ui/time';
 import { helpElement } from './ui/help/help';
 import { settingsElement } from './ui/settings/settings';
-import { actionButton } from './ui/main-action-button/main-action-button';
+import {
+  actionButtonInit,
+  renderActionButton,
+} from './ui/main-action-button/main-action-button';
 import './style.scss';
-import { ingredientsShelf } from './ui/ingredients-shelf/ingredients-shelf';
+import {
+  ingredientsShelfInit,
+  renderShelfIngredients,
+} from './ui/ingredients-shelf/ingredients-shelf';
+import { readGameState, updateToStartGameState } from './state/game-state';
 
-const appContainer = document.querySelector<HTMLElement>('#app');
+const render = () => {
+  const gameState = readGameState();
+  renderActionButton(gameState.status);
+  renderShelfIngredients(gameState.shelfStock);
+};
 
-if (!appContainer) throw new Error('App container is missing');
+const onActionButtonClick = () => {
+  if (readGameState().status !== 'menu') {
+    return;
+  }
 
-const header = createHTMLElement({ tag: 'header' });
+  updateToStartGameState();
+  render();
+};
 
-const main = createHTMLElement({ tag: 'main' });
-main.append(ingredientsShelf());
-const footer = createHTMLElement({ tag: 'footer' });
+const init = () => {
+  const appContainer = document.querySelector<HTMLElement>('#app');
+  if (!appContainer) throw new Error('App container is missing');
 
-footer.append(helpElement(), actionButton(), settingsElement());
+  const header = createHTMLElement({ tag: 'header' });
+  const main = createHTMLElement({ tag: 'main' });
+  main.append(ingredientsShelfInit());
+  const footer = createHTMLElement({ tag: 'footer' });
+  footer.append(
+    helpElement(),
+    actionButtonInit(onActionButtonClick),
+    settingsElement(),
+  );
+  appContainer.append(header, main, footer);
+  header.append(scoreElement(), timeElement());
+  render();
+};
 
-appContainer.append(header, main, footer);
-
-header.append(scoreElement(), timeElement());
+init();

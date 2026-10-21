@@ -1,12 +1,20 @@
 import './main-action-button.scss';
 import { createHTMLElement } from '../../helpers/create-html-element';
+import type { GameStatus } from '../../helpers/types';
 
-export const actionButton = () => {
-  const button = createHTMLElement({
-    tag: 'button',
-    textContent: 'Start game',
-    classList: 'action-btn',
+const button = createHTMLElement({
+  tag: 'button',
+  classList: 'action-btn',
+});
+
+export const actionButtonInit = (onClick: () => void) => {
+  button.addEventListener('click', () => {
+    onClick();
   });
 
   return button;
+};
+
+export const renderActionButton = (status: GameStatus) => {
+  button.textContent = status === 'menu' ? 'Start Game' : 'Brew';
 };
