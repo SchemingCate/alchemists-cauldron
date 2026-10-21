@@ -2,10 +2,12 @@ import { INGREDIENTS } from '../data/ingredients';
 import { RECIPES } from '../data/recipes';
 import { createStock } from '../logic/create-stock';
 import type { IGameState } from '../helpers/types';
+import { DEFAULT_DIFFICULTY, DIFFICULTIES } from '../data/difficulties';
 
 export const createMenuGameState = () => {
-  const recipe = RECIPES.find((r) => r.difficulty === 'medium');
-  if (!recipe) throw new Error('No medium level recipe in the data');
+  const recipe = RECIPES.find((r) => r.difficulty === DEFAULT_DIFFICULTY);
+  if (!recipe)
+    throw new Error(`No ${DEFAULT_DIFFICULTY} level recipe in the data`);
 
   const state: IGameState = {
     status: 'menu',
@@ -15,6 +17,7 @@ export const createMenuGameState = () => {
     activeRecipe: recipe,
     cauldronIngredients: [],
     shelfStock: {},
+    difficulty: DEFAULT_DIFFICULTY,
   };
 
   return state;
@@ -27,11 +30,12 @@ export const readGameState = (): Readonly<IGameState> => {
 };
 
 export const updateToStartGameState = () => {
-  // rules for the first story
-  const shelfIngredients = INGREDIENTS.slice(0, 6);
+  const rules = DIFFICULTIES[gameState.difficulty];
+
+  const shelfIngredients = INGREDIENTS.slice(0, rules.ingredientsOnShelf);
 
   gameState.status = 'playing';
-  gameState.timeLeft = 150;
-  gameState.lives = 3;
+  gameState.timeLeft = rules.startTime;
+  gameState.lives = rules.lives;
   gameState.shelfStock = createStock(shelfIngredients);
 };
