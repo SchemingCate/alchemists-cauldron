@@ -12,7 +12,11 @@ import {
   ingredientsShelfInit,
   renderShelfIngredients,
 } from './ui/ingredients-shelf/ingredients-shelf';
-import { readGameState, updateToStartGameState } from './state/game-state';
+import {
+  getCauldronCapacity,
+  readGameState,
+  updateToStartGameState,
+} from './state/game-state';
 import { cauldron } from './ui/cauldron/cauldron';
 import { recipeBookInit, renderRecipeBook } from './ui/recipe-book/recipe-book';
 
@@ -20,7 +24,12 @@ const render = () => {
   const gameState = readGameState();
   renderActionButton(gameState.status);
   renderShelfIngredients(gameState.shelfStock);
-  renderRecipeBook(gameState.status);
+
+  renderRecipeBook(
+    gameState.status,
+    gameState.cauldronIngredients.length,
+    getCauldronCapacity(),
+  );
 };
 
 const onActionButtonClick = () => {

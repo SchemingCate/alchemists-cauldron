@@ -25,6 +25,10 @@ export const createMenuGameState = () => {
 
 const gameState: IGameState = createMenuGameState();
 
+export const getCauldronCapacity = (): number => {
+  return DIFFICULTIES[gameState.difficulty].cauldronCapacity;
+};
+
 export const readGameState = (): Readonly<IGameState> => {
   return gameState;
 };
