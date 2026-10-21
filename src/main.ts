@@ -14,12 +14,13 @@ import {
 } from './ui/ingredients-shelf/ingredients-shelf';
 import { readGameState, updateToStartGameState } from './state/game-state';
 import { cauldron } from './ui/cauldron/cauldron';
-import { recipeBook } from './ui/recipe-book/recipe-book';
+import { recipeBookInit, renderRecipeBook } from './ui/recipe-book/recipe-book';
 
 const render = () => {
   const gameState = readGameState();
   renderActionButton(gameState.status);
   renderShelfIngredients(gameState.shelfStock);
+  renderRecipeBook(gameState.status);
 };
 
 const onActionButtonClick = () => {
@@ -37,7 +38,7 @@ const init = () => {
 
   const header = createHTMLElement({ tag: 'header' });
   const main = createHTMLElement({ tag: 'main' });
-  main.append(ingredientsShelfInit(), cauldron(), recipeBook());
+  main.append(ingredientsShelfInit(), cauldron(), recipeBookInit());
   const footer = createHTMLElement({ tag: 'footer' });
   footer.append(
     helpElement(),
