@@ -58,16 +58,17 @@ const createIngredientElement = (
 
   const count = createHTMLElement({
     tag: 'span',
-    textContent: `x${countNumber.toString()}`,
+    textContent: countNumber.toString(),
+    classList: 'shelf_ingredient_count',
   });
 
   if (countNumber === 0) {
     ingredient.classList.add('shelf_ingredient--inactive');
   }
 
-  ingredientStats.append(temperature, density, magicPower, count);
+  ingredientStats.append(temperature, density, magicPower);
 
-  ingredient.append(ingredientImage, ingredientName, ingredientStats);
+  ingredient.append(ingredientImage, ingredientName, ingredientStats, count);
 
   return ingredient;
 };
