@@ -1,5 +1,4 @@
 import './ingredients-shelf.scss';
-import ingredientIcon from '../../assets/images/icons/ingredients/dragon-tears.svg';
 import { createHTMLElement } from '../../helpers/create-html-element';
 import type { IIngredient } from '../../helpers/types';
 import { INGREDIENTS } from '../../data/ingredients';
@@ -30,7 +29,7 @@ const createIngredientElement = (
     classList: 'shelf_ingredient_image',
     attributes: [
       ['alt', ingredientData.name],
-      ['src', ingredientIcon],
+      ['src', ingredientData.icon],
     ],
   });
 
