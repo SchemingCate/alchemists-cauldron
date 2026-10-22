@@ -19,6 +19,7 @@ import {
 } from './state/game-state';
 import { cauldron } from './ui/cauldron/cauldron';
 import { recipeBookInit, renderRecipeBook } from './ui/recipe-book/recipe-book';
+import { addIngredient } from './logic/add-ingredient';
 
 const render = () => {
   const gameState = readGameState();
@@ -41,13 +42,22 @@ const onActionButtonClick = () => {
   render();
 };
 
+const onIngredientsShelfClick = (ingredientId: string) => {
+  addIngredient(ingredientId);
+  render();
+};
+
 const init = () => {
   const appContainer = document.querySelector<HTMLElement>('#app');
   if (!appContainer) throw new Error('App container is missing');
 
   const header = createHTMLElement({ tag: 'header' });
   const main = createHTMLElement({ tag: 'main' });
-  main.append(ingredientsShelfInit(), cauldron(), recipeBookInit());
+  main.append(
+    ingredientsShelfInit(onIngredientsShelfClick),
+    cauldron(),
+    recipeBookInit(),
+  );
   const footer = createHTMLElement({ tag: 'footer' });
   footer.append(
     helpElement(),

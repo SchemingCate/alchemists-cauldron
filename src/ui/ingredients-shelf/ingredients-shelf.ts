@@ -5,7 +5,19 @@ import { INGREDIENTS } from '../../data/ingredients';
 
 const shelf = createHTMLElement({ tag: 'div', classList: 'shelf' });
 
-export const ingredientsShelfInit = () => {
+export const ingredientsShelfInit = (
+  onIngredientClick: (ingredientId: string) => void,
+) => {
+  shelf.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    const element = target.closest('.shelf_ingredient');
+    if (!(element instanceof HTMLElement)) return;
+    const ingredientId = element.dataset.ingredientId;
+    if (!ingredientId)
+      throw new Error('No id in dataset for clicked ingredient');
+    onIngredientClick(ingredientId);
+  });
   const container = createHTMLElement({
     tag: 'div',
     classList: 'shelf-container',
@@ -21,6 +33,7 @@ const createIngredientElement = (
   const ingredient = createHTMLElement({
     tag: 'button',
     classList: 'shelf_ingredient',
+    attributes: [['data-ingredient-id', ingredientData.id]],
   });
 
   const ingredientName = createHTMLElement({
