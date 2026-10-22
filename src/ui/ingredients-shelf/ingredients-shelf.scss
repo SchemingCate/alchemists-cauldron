@@ -106,3 +106,15 @@
     transform: translateY(0);
   }
 }
+
+.shelf_ingredient:disabled {
+  pointer-events: none;
+  color: #4a342866;
+  & .shelf_ingredient_image {
+    visibility: hidden;
+  }
+  & .shelf_ingredient_count {
+    background-color: #4a342833;
+    border-color: transparent;
+  }
+}

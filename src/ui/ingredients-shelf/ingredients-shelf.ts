@@ -75,9 +75,7 @@ const createIngredientElement = (
     classList: 'shelf_ingredient_count',
   });
 
-  if (countNumber === 0) {
-    ingredient.classList.add('shelf_ingredient--inactive');
-  }
+  ingredient.disabled = countNumber === 0;
 
   ingredientStats.append(temperature, density, magicPower);
 
