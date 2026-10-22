@@ -1,0 +1,25 @@
+.action-btn {
+  height: 130px;
+  border-image-source: url(../../assets/images/background-images/button-plate.svg);
+  border-image-slice: 40 76 fill;
+  border-style: solid;
+  border-width: 40px 76px;
+  background-color: transparent;
+  font-family: 'Mystery Quest', system-ui;
+  font-size: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #422f23;
+  transition:
+    text-shadow 0.3s,
+    transform 0.3s;
+  &:hover {
+    cursor: pointer;
+    text-shadow: #f5b84f 10px 0 20px;
+    transform: translateY(-5px);
+  }
+  &:active {
+    transform: translateY(3px);
+  }
+}

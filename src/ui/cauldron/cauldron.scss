@@ -1,0 +1,29 @@
+.hearth {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/images/hearth.svg');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  padding-bottom: 30px;
+}
+
+.fire {
+  background-image: url('../../assets/images/fire.svg');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  height: 100px;
+  width: 100%;
+}
+
+.cauldron {
+  background-image: url('../../assets/images/cauldron.svg');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  width: 100%;
+  height: 300px;
+}

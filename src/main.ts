@@ -1,7 +1,74 @@
+import { createHTMLElement } from './helpers/create-html-element';
+import { scoreElement } from './ui/score';
+import { timeElement } from './ui/time';
+import { helpElement } from './ui/help/help';
+import { settingsElement } from './ui/settings/settings';
+import {
+  actionButtonInit,
+  renderActionButton,
+} from './ui/main-action-button/main-action-button';
 import './style.scss';
+import {
+  ingredientsShelfInit,
+  renderShelfIngredients,
+} from './ui/ingredients-shelf/ingredients-shelf';
+import {
+  getCauldronCapacity,
+  isCauldronFull,
+  readGameState,
+  updateToStartGameState,
+} from './state/game-state';
+import { cauldron } from './ui/cauldron/cauldron';
+import { recipeBookInit, renderRecipeBook } from './ui/recipe-book/recipe-book';
+import { addIngredient } from './logic/add-ingredient';
 
-const appContainer = document.querySelector<HTMLElement>('#app');
+const render = () => {
+  const gameState = readGameState();
 
-if (!appContainer) throw new Error('App container is missing');
+  renderActionButton(gameState.status);
+  renderShelfIngredients(gameState.shelfStock, isCauldronFull());
 
-appContainer.innerHTML = `<h1>Alchemist's Cauldron</h1>`;
+  renderRecipeBook(
+    gameState.status,
+    gameState.cauldronIngredients.length,
+    getCauldronCapacity(),
+  );
+};
+
+const onActionButtonClick = () => {
+  if (readGameState().status !== 'menu') {
+    return;
+  }
+
+  updateToStartGameState();
+  render();
+};
+
+const onIngredientsShelfClick = (ingredientId: string) => {
+  addIngredient(ingredientId);
+  render();
+};
+
+const init = () => {
+  const appContainer = document.querySelector<HTMLElement>('#app');
+  if (!appContainer) throw new Error('App container is missing');
+
+  const header = createHTMLElement({ tag: 'header' });
+  const main = createHTMLElement({ tag: 'main' });
+  main.append(
+    ingredientsShelfInit(onIngredientsShelfClick),
+    cauldron(),
+    recipeBookInit(),
+  );
+  const footer = createHTMLElement({ tag: 'footer' });
+  footer.append(
+    helpElement(),
+    actionButtonInit(onActionButtonClick),
+    settingsElement(),
+  );
+  appContainer.append(header, main, footer);
+  header.append(scoreElement(), timeElement());
+  render();
+};
+
+init();

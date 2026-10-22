@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="320" viewBox="0 0 240 320" fill="none" stroke="#4A3428" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" xmlns:c2pa="http://c2pa.org/manifest">
+  <title>Ingredient cabinet: background for the shelf cards.</title>
+  <defs>
+    <!-- hand-drawn look: slightly wobbly edges -->
+    <filter id="tex-ingredient-shelf" x="-3%" y="-3%" width="106%" height="106%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="61" result="wobble"/>
+      <feDisplacementMap in="SourceGraphic" in2="wobble" scale="2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  <g filter="url(#tex-ingredient-shelf)">
+    <!-- back panel (the stretchy middle): soft boards -->
+    <path d="M22 30 L218 30 L218 290 L22 290 Z" fill="#C9966A"/>
+    <path d="M22 30 L218 30 L218 40 L22 40 Z" fill="#B3825A" stroke="none"/>
+    <path d="M71 40 L71 290 M120 40 L120 290 M169 40 L169 290" stroke="#B3825A" stroke-width="2"/>
+    <!-- sides -->
+    <path d="M8 26 L22 26 L22 294 L8 294 Z" fill="#A97C54"/>
+    <path d="M218 26 L232 26 L232 294 L218 294 Z" fill="#A97C54"/>
+    <!-- top crown with a little carved arch in each corner -->
+    <path d="M2 30 L2 12 C2 8 4 6 8 6 L232 6 C236 6 238 8 238 12 L238 30 Z" fill="#B98058"/>
+    <path d="M10 22 C14 14 22 14 26 22 M214 22 C218 14 226 14 230 22" stroke="#F2C14E" stroke-width="2"/>
+    <circle cx="18" cy="24" r="1.8" fill="#F2C14E" stroke="none"/><circle cx="222" cy="24" r="1.8" fill="#F2C14E" stroke="none"/>
+    <!-- bottom-->
+    <path d="M2 290 L238 290 L238 306 C238 312 236 314 232 314 L8 314 C4 314 2 312 2 306 Z" fill="#B98058"/>
+    <path d="M2 290 L238 290" />
+    <path d="M22 296 C80 298 160 298 218 296" stroke="#9A6A48" stroke-width="2"/>
+  </g>
+</svg>

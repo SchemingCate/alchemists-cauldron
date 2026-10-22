@@ -1,3 +1,48 @@
 h1 {
   color: red;
 }
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  background-color: #f6e7cc;
+}
+
+body {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background-image: url(./assets/images/background-images/bg-workshop.png);
+  background-size: cover;
+  background-position: center top;
+}
+
+main {
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+footer {
+  display: grid;
+  padding: 20px;
+  align-items: center;
+  grid-template-columns: auto auto auto;
+  background-image: url(./assets/images/background-images/bench.svg);
+}
