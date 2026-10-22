@@ -14,6 +14,7 @@ import {
 } from './ui/ingredients-shelf/ingredients-shelf';
 import {
   getCauldronCapacity,
+  isCauldronFull,
   readGameState,
   updateToStartGameState,
 } from './state/game-state';
@@ -23,8 +24,9 @@ import { addIngredient } from './logic/add-ingredient';
 
 const render = () => {
   const gameState = readGameState();
+
   renderActionButton(gameState.status);
-  renderShelfIngredients(gameState.shelfStock);
+  renderShelfIngredients(gameState.shelfStock, isCauldronFull());
 
   renderRecipeBook(
     gameState.status,

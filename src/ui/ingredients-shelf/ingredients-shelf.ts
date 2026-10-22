@@ -29,6 +29,7 @@ export const ingredientsShelfInit = (
 const createIngredientElement = (
   ingredientData: IIngredient,
   countNumber: number,
+  isCauldronFull: boolean,
 ): HTMLButtonElement => {
   const ingredient = createHTMLElement({
     tag: 'button',
@@ -75,7 +76,13 @@ const createIngredientElement = (
     classList: 'shelf_ingredient_count',
   });
 
-  ingredient.disabled = countNumber === 0;
+  const isDepleted = countNumber <= 0;
+
+  ingredient.disabled = isDepleted || isCauldronFull;
+
+  ingredient.classList.toggle('shelf_ingredient--depleted', isDepleted);
+
+  ingredient.classList.toggle('shelf_ingredient--blocked', isCauldronFull);
 
   ingredientStats.append(temperature, density, magicPower);
 
@@ -84,7 +91,10 @@ const createIngredientElement = (
   return ingredient;
 };
 
-export const renderShelfIngredients = (stock: Record<string, number>) => {
+export const renderShelfIngredients = (
+  stock: Record<string, number>,
+  isCauldronFull: boolean,
+) => {
   const ingredientsStock = stock;
 
   const ingredientElements: HTMLButtonElement[] = [];
@@ -94,7 +104,9 @@ export const renderShelfIngredients = (stock: Record<string, number>) => {
       (ingredient) => ingredient.id === id,
     );
     if (!ingredientData) throw new Error(`Can't find ingredient with id ${id}`);
-    ingredientElements.push(createIngredientElement(ingredientData, count));
+    ingredientElements.push(
+      createIngredientElement(ingredientData, count, isCauldronFull),
+    );
   }
 
   shelf.replaceChildren(...ingredientElements);

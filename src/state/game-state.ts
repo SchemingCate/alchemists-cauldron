@@ -58,3 +58,7 @@ export const addIngredientToCauldron = (ingredientId: string) => {
   const newStockCount = currentStock - 1;
   gameState.shelfStock[ingredientId] = newStockCount;
 };
+
+export const isCauldronFull = (): boolean => {
+  return getCauldronCapacity() <= gameState.cauldronIngredients.length;
+};
